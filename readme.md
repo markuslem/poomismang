@@ -23,4 +23,5 @@ tegevuskava:
 1) peaklass main.java, mis annab ühe tähega sõna ette klassist faililugeja
 2) Mingi meetod, mis teeb nii, et esimene täht on näha, aga ülejäänud tähtede asemel on lahtrid
 3) Siis saab kasutaja, midagi pakkuda
-4) 
+4) Klass Mängija.java - Mängijal on elud, punktid, meetodid, millega saab punkte lisada ja elusid lisada. Kui elud otsa saavad on mäng läbi. Iga roundi alguses elud nullivad ära, ehk lähevad 6 peale
+5) 
