@@ -18,3 +18,9 @@ nt esinemissagedusega 500 sõna annab vähem punkte kui esinemissagedusega 10.
 
 
 FailiLugeja klassis loeb programm failist suvalise rea.
+
+tegevuskava:
+1) peaklass main.java, mis annab ühe tähega sõna ette klassist faililugeja
+2) Mingi meetod, mis teeb nii, et esimene täht on näha, aga ülejäänud tähtede asemel on lahtrid
+3) Siis saab kasutaja, midagi pakkuda
+4) 
