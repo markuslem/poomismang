@@ -42,6 +42,7 @@ public class Mängija {
 
     public void printMehike() throws Exception {
         return; // eemaldada tulevikus
+        // TODO: mehike.txt ümberpööramine
         for (String osa : mehikeseOsad.subList(// TODO: millised read printida)) {
             System.out.print(osa);
         }
