@@ -2,7 +2,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
 public class Mängija {
@@ -10,12 +13,13 @@ public class Mängija {
     private byte elud = 6;
     private int punktid = 0;
     private List<String> mehikeseOsad;
-    private List<Character> kasutatudTähed;
+    private Set<Character> kasutatudTähed;
 
     public Mängija() throws Exception {
         // isendi loomine
         // lisab kõik read failist "mehike.txt" listi mehikeseOsad
         mehikeseOsad = Files.readAllLines(Paths.get("mehike.txt"));
+        kasutatudTähed = new HashSet<>();
     }
 
 
@@ -75,5 +79,11 @@ public class Mängija {
         mängija.printMehike();
         mängija.eemaldaElu();
         mängija.printMehike();
+        for (char i : new char[]{'a', 'b', 'c', 'd'}) {
+            mängija.lisaTäht(i);
+        }
+        mängija.prindiKasutatudTähed();
+        System.out.println("mängija.tähtSaadaval('a') = " + mängija.tähtSaadaval('a'));
+        System.out.println("mängija.tähtSaadaval('a') = " + mängija.tähtSaadaval('g'));
     }
 }
