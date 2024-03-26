@@ -10,9 +10,11 @@ public class Mängija {
     private byte elud = 6;
     private int punktid = 0;
     private List<String> mehikeseOsad;
+    private List<Character> kasutatudTähed;
 
-    // mehikese isendi loomisel loetakse mehike.txt failist mehikese osad.
-    public Mängija() throws IOException {
+    public Mängija() throws Exception {
+        // isendi loomine
+        // lisab kõik read failist "mehike.txt" listi mehikeseOsad
         mehikeseOsad = Files.readAllLines(Paths.get("mehike.txt"));
     }
 
@@ -46,9 +48,32 @@ public class Mängija {
         }
     }
 
+    public boolean tähtSaadaval(char täht) {
+        // kui täht on juba mängija poolt pakutud, siis seda ei saa enam pakkuda
+        if (kasutatudTähed.contains(täht))
+            return false; // täht on juba kasutuses, ei saa enam kasutada
+        else
+            return true;
+    }
+
+    public void lisaTäht(char täht) {
+        // kui täht pakutakse ja see on saadaval
+        kasutatudTähed.add(täht);
+    }
+
+    public void prindiKasutatudTähed() {
+        // kõikide kasutadu tähtede väljastamine eraldatult tühikuga
+        kasutatudTähed.forEach(täht -> System.out.print(täht + " "));
+        System.out.println();
+    }
+
     public static void main(String[] args) throws Exception {
         Mängija mängija = new Mängija();
         System.out.println(mängija.elud);
+        mängija.printMehike();
+        mängija.eemaldaElu();
+        mängija.printMehike();
+        mängija.eemaldaElu();
         mängija.printMehike();
     }
 }
