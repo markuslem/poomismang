@@ -41,10 +41,14 @@ public class Mängija {
     }
 
     public void printMehike() throws Exception {
-        return; // eemaldada tulevikus
-        // TODO: mehike.txt ümberpööramine
-        for (String osa : mehikeseOsad.subList(// TODO: millised read printida)) {
-            System.out.print(osa);
+        for (String s : mehikeseOsad.subList(elud * 8, elud * 8 + 8)) {
+            System.out.print(s + "\n");
         }
+    }
+
+    public static void main(String[] args) throws Exception {
+        Mängija mängija = new Mängija();
+        System.out.println(mängija.elud);
+        mängija.printMehike();
     }
 }
