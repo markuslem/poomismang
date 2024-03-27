@@ -66,9 +66,12 @@ public class Mängija {
     }
 
     public void prindiKasutatudTähed() {
-        // kõikide kasutadu tähtede väljastamine eraldatult tühikuga
-        kasutatudTähed.forEach(täht -> System.out.print(täht + " "));
-        System.out.println();
+        if (!kasutatudTähed.isEmpty()) // kui on midagi printida
+        {// kõikide kasutadu tähtede väljastamine eraldatult tühikuga
+            System.out.print("Kasutatud tähed: ");
+            kasutatudTähed.forEach(täht -> System.out.print(täht + " "));
+            System.out.println();
+        }
     }
 
     public static void main(String[] args) throws Exception {
