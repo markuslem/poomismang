@@ -13,6 +13,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+
         // nii kaua, kuni sõna ära arvatakse või elud otsa saavad
         while (mängija.getElud() > 0) {// sisendi küsimine
             mängija.prindiKasutatudTähed();
@@ -44,6 +45,8 @@ public class Main {
                 mängija.printMehike();
             }
         }
+
+        System.out.println("Punktid: " + mängija.getPunktid());
 
 
     }

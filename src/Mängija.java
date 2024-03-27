@@ -42,6 +42,10 @@ public class Mängija {
         return elud;
     }
 
+    public void taastaElud() {
+        elud = 6; // iga sõna alguses taastatakse mängija elud
+    }
+
     public int getPunktid() {
         return punktid;
     }
