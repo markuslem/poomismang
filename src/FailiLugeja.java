@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -17,10 +16,16 @@ public class FailiLugeja {
         int suvalineArv = (int) (Math.random() * 9717) + 1;
 
         // kujul - sõna    liik    kokku    ajakulu
+        // eraldatud "\t"-ga
         return Files.readAllLines(Paths.get("tabel1.txt")).get(suvalineArv);
     }
 
+    public static String eraldaSõna(String rida) throws Exception {
+
+        return rida.substring(0, rida.indexOf('\t'));
+    }
+
     public static void main(String[] args) throws Exception {
-        System.out.println(loeSuvalineRida());
+        System.out.println(eraldaSõna(loeSuvalineRida()));
     }
 }
