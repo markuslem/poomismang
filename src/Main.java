@@ -25,7 +25,8 @@ public class Main {
                 täht = Character.toUpperCase(pakutud.charAt(0));
                 if (pakutud.length() == 1 && arvatavSõna.tähtSaadaval(täht)) {
                     // sisend on korrektne
-                    System.out.println("korrektne");
+                    // st tähte ei ole enne pakutud ja sisendi pikkus on 1
+                    System.out.println("See on korrektne sisend");
                     arvatavSõna.lisaTäht(täht);
                     break; // kui programm on saanud korrektse sisendi
                 } else {
