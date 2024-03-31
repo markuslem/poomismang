@@ -13,13 +13,12 @@ public class Mängija {
     private byte elud = 6;
     private int punktid = 0;
     private List<String> mehikeseOsad;
-    private Set<Character> kasutatudTähed;
+
 
     public Mängija() throws Exception {
         // isendi loomine
         // lisab kõik read failist "mehike.txt" listi mehikeseOsad
         mehikeseOsad = Files.readAllLines(Paths.get("mehike.txt"));
-        kasutatudTähed = new HashSet<>();
     }
 
 
@@ -56,30 +55,10 @@ public class Mängija {
         }
     }
 
-    public boolean tähtSaadaval(char täht) {
-        // kui täht on juba mängija poolt pakutud, siis seda ei saa enam pakkuda
-        if (kasutatudTähed.contains(täht))
-            return false; // täht on juba kasutuses, ei saa enam kasutada
-        else
-            return true;
-    }
 
-    public void lisaTäht(char täht) {
-        // kui täht pakutakse ja see on saadaval
-        kasutatudTähed.add(täht);
-    }
-
-    public void prindiKasutatudTähed() {
-        if (!kasutatudTähed.isEmpty()) // kui on midagi printida
-        {// kõikide kasutadu tähtede väljastamine eraldatult tühikuga
-            System.out.print("Kasutatud tähed: ");
-            kasutatudTähed.forEach(täht -> System.out.print(täht + " "));
-            System.out.println();
-        }
-    }
 
     public static void main(String[] args) throws Exception {
-        Mängija mängija = new Mängija();
+        /*Mängija mängija = new Mängija();
         System.out.println(mängija.elud);
         mängija.printMehike();
         mängija.eemaldaElu();
@@ -91,6 +70,6 @@ public class Mängija {
         }
         mängija.prindiKasutatudTähed();
         System.out.println("mängija.tähtSaadaval('a') = " + mängija.tähtSaadaval('a'));
-        System.out.println("mängija.tähtSaadaval('a') = " + mängija.tähtSaadaval('g'));
+        System.out.println("mängija.tähtSaadaval('a') = " + mängija.tähtSaadaval('g'));*/
     }
 }
