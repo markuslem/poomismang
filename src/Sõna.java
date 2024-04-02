@@ -7,9 +7,11 @@ public class Sõna {
     private char[] arvatudTähed; // Sisaldab sõna kujul R_T__ st 1. täht ja arvatud täht
     private Set<Character> pakutudTähed;
 
-    public Sõna(String suvalineSõna) {
+    public Sõna() throws Exception {
         // sõna isendi loomisel loetakse failist uus sõna
 
+        String rida = FailiLugeja.loeSuvalineRida();
+        suvalineSõna= FailiLugeja.eraldaSõna(rida);
 
 
         this.suvalineSõna = suvalineSõna.toUpperCase();

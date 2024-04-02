@@ -7,10 +7,9 @@ public class Main {
 
         Mängija mängija = new Mängija();
 
-        String rida = FailiLugeja.loeSuvalineRida();
-        String sõna = FailiLugeja.eraldaSõna(rida);
 
-        Sõna arvatavSõna = new Sõna(sõna);
+
+        Sõna arvatavSõna = new Sõna();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -45,9 +44,12 @@ public class Main {
                     // kõik tähed on ära arvatud
                     System.out.println("Arvasite kõik tähed ära!");
                     System.out.println(arvatavSõna.getSuvalineSõna());
+
                     System.out.println("\n------------------------\n");
+
+                    mängija.taastaElud();
                     System.out.println("UUS SÕNA:");
-                    arvatavSõna = new Sõna(sõna);
+                    arvatavSõna = new Sõna();
                 }
 
             } else {

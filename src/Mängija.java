@@ -30,11 +30,8 @@ public class Mängija {
 
 
     public void eemaldaElu() {
-        if (elud > 0) {
+        if (elud > 0)
             elud -= 1;
-        } else {
-            System.out.println("Elud on otsas.");
-        }
     }
 
     public byte getElud() {
