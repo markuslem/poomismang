@@ -61,6 +61,7 @@ public class Main {
         }
 
         System.out.println("Punktid: " + mängija.getPunktid());
+        scanner.close();
 
     }
 }
