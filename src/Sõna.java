@@ -55,7 +55,7 @@ public class Sõna {
         System.out.println(String.valueOf(arvatudTähed));
     }
 
-    public boolean onÕigeSõnaArvatud() {
+    public boolean onÕigeSõnaArvatud() { // kui kõik tähed sõnast on ära arvatud
         for (char täht : arvatudTähed) {
             if (täht == '_') {
                 return false;
