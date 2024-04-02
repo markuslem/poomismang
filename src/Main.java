@@ -3,14 +3,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        String suvalineSõna;
+        /*String suvalineSõna;
         try {
             suvalineSõna = FailiLugeja.eraldaSõna(FailiLugeja.loeSuvalineRida()).toUpperCase(); // Teisendame loetud sõna suurtähtedeks
             Sõna mängitavSõna = new Sõna(suvalineSõna);
             mängitavSõna.arvaSõna();
         } catch (Exception e) {
             System.out.println("Viga faili lugemisel: " + e.getMessage());
-        }
+        }*/
 
         // mängija isendi loomine
         Mängija mängija = new Mängija();
@@ -19,7 +19,7 @@ public class Main {
         String rida = FailiLugeja.loeSuvalineRida();
         String sõna = FailiLugeja.eraldaSõna(rida);
 
-        Sõna arvatavSõna = new Sõna(sõna);
+        Sõna arvatavSõna = new Sõna(sõna); // sõna isend - iga sõna kohta uus isend
 
         Scanner scanner = new Scanner(System.in);
 
@@ -30,6 +30,8 @@ public class Main {
 
             char täht; // täht mida pakutakse
             while (true) {
+
+                // kontrollib, kas sisend on korrektne
                 System.out.print("Pakkuge täht: ");
                 String pakutud = scanner.nextLine(); // kasutaja sisend
                 täht = Character.toUpperCase(pakutud.charAt(0));
