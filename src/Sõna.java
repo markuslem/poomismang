@@ -4,7 +4,7 @@ import java.util.Set;
 public class Sõna {
 
     private String suvalineSõna;
-    private char[] arvatudTähed;
+    private char[] arvatudTähed; // Sisaldab sõna kujul R_T__ st 1. täht ja arvatud täht
     private Set<Character> pakutudTähed;
 
     public Sõna(String suvalineSõna) {
@@ -59,5 +59,14 @@ public class Sõna {
             System.out.print(täht + " ");
         }
         System.out.println();
+    }
+
+    public void lisaTäht(char täht) {
+        pakutudTähed.add(täht);
+    }
+
+    public boolean tähtSaadaval(char täht) {
+        // kui täht on juba mängija poolt pakutud, siis seda ei saa enam pakkuda
+        return !pakutudTähed.contains(täht);
     }
 }

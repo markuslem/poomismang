@@ -6,7 +6,6 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         Mängija mängija = new Mängija();
-        Set<Character> kasutatudTähed = new HashSet<>(); // Lisatud kasutatud tähtede hoidmiseks
 
         String rida = FailiLugeja.loeSuvalineRida();
         String sõna = FailiLugeja.eraldaSõna(rida);
@@ -23,9 +22,9 @@ public class Main {
                 System.out.print("Pakkuge täht: ");
                 String pakutud = scanner.nextLine();
                 täht = Character.toUpperCase(pakutud.charAt(0));
-                if (pakutud.length() == 1) {
+                if (pakutud.length() == 1 && arvatavSõna.tähtSaadaval(täht)) {
                     System.out.println("See on korrektne sisend");
-                    kasutatudTähed.add(täht); // Lisame kasutatud tähe hulka
+                    arvatavSõna.lisaTäht(täht); // Lisame kasutatud tähe hulka
                     break;
                 } else {
                     System.out.println("Ebakorrektne sisend.");
