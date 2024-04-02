@@ -1,8 +1,8 @@
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
 
 public class Main {
+
+
     public static void main(String[] args) throws Exception {
 
         Mängija mängija = new Mängija();
@@ -15,7 +15,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (mängija.getElud() > 0) {
-            arvatavSõna.prindiArvatudTähed();
+            // väljastab lünkliku sõna
+            arvatavSõna.väljastaLünklik();
+
+            // kasutaja poolt juba pakutud tähed
+            arvatavSõna.prindiKasutatudTähed(); // neid tähti ei saa kasutaja uuesti sisestada
 
             char täht;
             while (true) {
@@ -23,24 +27,40 @@ public class Main {
                 String pakutud = scanner.nextLine();
                 täht = Character.toUpperCase(pakutud.charAt(0));
                 if (pakutud.length() == 1 && arvatavSõna.tähtSaadaval(täht)) {
-                    System.out.println("See on korrektne sisend");
-                    arvatavSõna.lisaTäht(täht); // Lisame kasutatud tähe hulka
+                    arvatavSõna.lisaTäht(täht); // Lisame kasutatud tähe pakutud tähtede hulka
                     break;
                 } else {
-                    System.out.println("Ebakorrektne sisend.");
+                    System.out.println("Ebakorrektne sisend või täht on juba kasutuses.");
                 }
             }
 
-            boolean kuulumine = arvatavSõna.arvaTäht(täht);
-            if (kuulumine) {
-                mängija.lisaPunkte(100);
+
+            if (arvatavSõna.tähtKuulubSõnasse(täht)) {
+                mängija.lisaPunkte(1);
+
+                // lünkade avamine
+                arvatavSõna.avaTäht(täht);
+
+                if (arvatavSõna.onÕigeSõnaArvatud()) {
+                    // kõik tähed on ära arvatud
+                    System.out.println("Arvasite kõik tähed ära!");
+                    System.out.println(arvatavSõna.getSuvalineSõna());
+                    System.out.println("\n------------------------\n");
+                    System.out.println("UUS SÕNA:");
+                    arvatavSõna = new Sõna(sõna);
+                }
+
             } else {
-                System.out.println("Pakutud täht ei kuulu sõnasse");
+
+                // elu eemaldamine
                 mängija.eemaldaElu();
                 mängija.printMehike();
             }
         }
 
+        System.out.print("Sõna oli: ");
+        System.out.println(arvatavSõna.getSuvalineSõna());
+        System.out.println("Mäng läbi!");
         System.out.println("Punktid: " + mängija.getPunktid());
         scanner.close();
 

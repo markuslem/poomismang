@@ -8,6 +8,10 @@ public class Sõna {
     private Set<Character> pakutudTähed;
 
     public Sõna(String suvalineSõna) {
+        // sõna isendi loomisel loetakse failist uus sõna
+
+
+
         this.suvalineSõna = suvalineSõna.toUpperCase();
         this.arvatudTähed = new char[suvalineSõna.length()];
         this.pakutudTähed = new HashSet<>();
@@ -21,27 +25,32 @@ public class Sõna {
         }
     }
 
-    public boolean arvaTäht(char täht) {
-        täht = Character.toUpperCase(täht);
-        boolean õige = false;
-        pakutudTähed.add(täht);
+    public void avaTäht(char täht) {
+
+        // Lünkade asendamine pakutud tähtedega
         for (int i = 0; i < suvalineSõna.length(); i++) {
-            if (Character.toUpperCase(suvalineSõna.charAt(i)) == täht && arvatudTähed[i] == '_') {
+            if (suvalineSõna.charAt(i) == täht) {
                 arvatudTähed[i] = täht;
-                õige = true;
             }
         }
-        if (õige) {
-            if (onÕigeSõnaArvatud()) {
-                System.out.println("Õige! " + suvalineSõna);
-                System.exit(0);
-            } else {
-                System.out.println("Õige! " + String.valueOf(arvatudTähed));
-            }
+    }
+
+    public boolean tähtKuulubSõnasse(char täht) {
+
+       // kui täht sisaldub sõnas -> return true
+        if (suvalineSõna.indexOf(täht) == -1) {
+            return false;
         } else {
-            System.out.println("Vale! " + String.valueOf(arvatudTähed));
+            return true;
         }
-        return õige;
+    }
+
+    public String getSuvalineSõna() {
+        return suvalineSõna;
+    }
+
+    public void väljastaLünklik() {
+        System.out.println(String.valueOf(arvatudTähed));
     }
 
     public boolean onÕigeSõnaArvatud() {
@@ -53,12 +62,13 @@ public class Sõna {
         return true;
     }
 
-    public void prindiArvatudTähed() {
-        System.out.print("Kasutatud tähed: ");
-        for (char täht : pakutudTähed) {
-            System.out.print(täht + " ");
+    public void prindiKasutatudTähed() {
+        if (!pakutudTähed.isEmpty()) // kui on midagi printida
+        {// kõikide kasutadu tähtede väljastamine eraldatult tühikuga
+            System.out.print("Kasutatud tähed: ");
+            pakutudTähed.forEach(täht -> System.out.print(täht + " "));
+            System.out.println();
         }
-        System.out.println();
     }
 
     public void lisaTäht(char täht) {
