@@ -55,7 +55,7 @@ public class Sõna {
 
     public void prindiArvatudTähed() {
         System.out.print("Kasutatud tähed: ");
-        for (char täht : arvatudTähed) {
+        for (char täht : pakutudTähed) {
             System.out.print(täht + " ");
         }
         System.out.println();
