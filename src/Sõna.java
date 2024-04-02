@@ -1,37 +1,33 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashSet;
-import java.util.Scanner;
 import java.util.Set;
 
 public class Sõna {
 
     private String suvalineSõna;
     private char[] arvatudTähed;
-    private Set<Character> kasutatudTähed;
+    private Set<Character> pakutudTähed;
 
     public Sõna(String suvalineSõna) {
-        this.suvalineSõna = suvalineSõna.toUpperCase(); // Teisendame kogu sõna suurtähtedeks
+        this.suvalineSõna = suvalineSõna.toUpperCase();
         this.arvatudTähed = new char[suvalineSõna.length()];
+        this.pakutudTähed = new HashSet<>();
 
         for (int i = 0; i < suvalineSõna.length(); i++) {
             if (i == 0) {
-                arvatudTähed[i] = Character.toUpperCase(suvalineSõna.charAt(i)); // Esimene täht suurtäheks
+                arvatudTähed[i] = Character.toUpperCase(suvalineSõna.charAt(i));
             } else {
-                arvatudTähed[i] = '_'; // Kõik teised tähed "_" tähed
+                arvatudTähed[i] = '_';
             }
         }
-
-        kasutatudTähed = new HashSet<>();
     }
 
-    public void arvaTäht(char täht) {
-        täht = Character.toUpperCase(täht); // Konverteerime sisestatud tähe suurtäheks
+    public boolean arvaTäht(char täht) {
+        täht = Character.toUpperCase(täht);
         boolean õige = false;
+        pakutudTähed.add(täht);
         for (int i = 0; i < suvalineSõna.length(); i++) {
             if (Character.toUpperCase(suvalineSõna.charAt(i)) == täht && arvatudTähed[i] == '_') {
-                arvatudTähed[i] = täht; // Kui sisestatud täht on sõnas ja koht on tühi, siis asendame "_" tähega
+                arvatudTähed[i] = täht;
                 õige = true;
             }
         }
@@ -43,18 +39,9 @@ public class Sõna {
                 System.out.println("Õige! " + String.valueOf(arvatudTähed));
             }
         } else {
-            System.out.println("Vale!");
+            System.out.println("Vale! " + String.valueOf(arvatudTähed));
         }
-    }
-
-    public boolean tähtSaadaval(char täht) {
-        täht = Character.toUpperCase(täht);
-        return !kasutatudTähed.contains(täht);
-    }
-
-    public void lisaTäht(char täht) {
-        täht = Character.toUpperCase(täht);
-        kasutatudTähed.add(täht);
+        return õige;
     }
 
     public boolean onÕigeSõnaArvatud() {
@@ -66,49 +53,11 @@ public class Sõna {
         return true;
     }
 
-    /*public void arvaSõna() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Alguses: ");
-        for (int i = 0; i < suvalineSõna.length(); i++) {
-            System.out.print(arvatudTähed[i]);
-        }
-        System.out.println();
-
-        while (true) {
-            System.out.println("Arva täht või sisesta 'lõpeta' sõna lõpetamiseks:");
-            String sisend = scanner.nextLine();
-            if (sisend.equalsIgnoreCase("lõpeta")) {
-                break;
-            }
-            if (sisend.length() != 1) {
-                System.out.println("Palun sisesta ainult üks täht!");
-                continue;
-            }
-            char sisestatudTäht = sisend.charAt(0);
-            sisestatudTäht = Character.toUpperCase(sisestatudTäht); // Teisendame sisestatud tähe suurtäheks
-            if (tähtSaadaval(sisestatudTäht)) {
-                System.out.println("See täht on juba kasutatud!");
-                continue;
-            }
-            arvaTäht(sisestatudTäht);
-            lisaTäht(sisestatudTäht);
-            prindiKasutatudTähed();
-        }
-
-        System.out.println("Edukalt lõpetatud. Sõnaks oli: " + suvalineSõna);
-
-        scanner.close();
-    }*/
-
-    public void prindiKasutatudTähed() {
+    public void prindiArvatudTähed() {
         System.out.print("Kasutatud tähed: ");
-        for (char c : kasutatudTähed) {
-            System.out.print(c + " ");
+        for (char täht : arvatudTähed) {
+            System.out.print(täht + " ");
         }
         System.out.println();
     }
 }
-
-
-
