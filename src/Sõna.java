@@ -66,7 +66,7 @@ public class Sõna {
         return true;
     }
 
-    public void arvaSõna() {
+    /*public void arvaSõna() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Alguses: ");
@@ -99,7 +99,7 @@ public class Sõna {
         System.out.println("Edukalt lõpetatud. Sõnaks oli: " + suvalineSõna);
 
         scanner.close();
-    }
+    }*/
 
     public void prindiKasutatudTähed() {
         System.out.print("Kasutatud tähed: ");
