@@ -52,6 +52,7 @@ public class Main {
             if (kuulumine) {
                 // sõna.avaTäht(täht)
                 // sõna.väljastaSõna()
+                mängija.lisaPunkte(100);
             } else {
                 System.out.println("Pakutud täht ei kuulu sõnasse");
                 mängija.eemaldaElu();

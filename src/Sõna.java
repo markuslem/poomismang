@@ -49,7 +49,7 @@ public class Sõna {
 
     public boolean tähtSaadaval(char täht) {
         täht = Character.toUpperCase(täht);
-        return kasutatudTähed.contains(täht);
+        return !kasutatudTähed.contains(täht);
     }
 
     public void lisaTäht(char täht) {
