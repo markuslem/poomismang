@@ -1,11 +1,9 @@
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 public class Mängija {
@@ -18,7 +16,9 @@ public class Mängija {
     public Mängija() throws Exception {
         // isendi loomine
         // lisab kõik read failist "mehike.txt" listi mehikeseOsad
-        mehikeseOsad = Files.readAllLines(Paths.get("mehike.txt"));
+        try (Scanner sc = new Scanner(new File("tabel1.txt"), StandardCharsets.UTF_8)) {
+            mehikeseOsad = Files.readAllLines(Paths.get("mehike.txt"));
+        }
     }
 
 
@@ -52,21 +52,4 @@ public class Mängija {
         }
     }
 
-
-
-    public static void main(String[] args) throws Exception {
-        /*Mängija mängija = new Mängija();
-        System.out.println(mängija.elud);
-        mängija.printMehike();
-        mängija.eemaldaElu();
-        mängija.printMehike();
-        mängija.eemaldaElu();
-        mängija.printMehike();
-        for (char i : new char[]{'a', 'b', 'c', 'd'}) {
-            mängija.lisaTäht(i);
-        }
-        mängija.prindiKasutatudTähed();
-        System.out.println("mängija.tähtSaadaval('a') = " + mängija.tähtSaadaval('a'));
-        System.out.println("mängija.tähtSaadaval('a') = " + mängija.tähtSaadaval('g'));*/
-    }
 }

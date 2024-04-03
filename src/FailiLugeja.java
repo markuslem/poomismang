@@ -1,15 +1,16 @@
+import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Scanner;
 
 public class FailiLugeja {
 
 
-
     public static String loeSuvalineRida() throws Exception {
         /*
-        * Loeb failist "tabel1.txt" suvalise rea 1 ja 9717 vahel
-        * */
-
+         * Loeb failist "tabel1.txt" suvalise rea 1 ja 9717 vahel
+         * */
 
 
         // arvu loomine
@@ -17,7 +18,10 @@ public class FailiLugeja {
 
         // kujul - sõna    liik    kokku    ajakulu
         // eraldatud "\t"-ga
-        return Files.readAllLines(Paths.get("tabel1.txt")).get(suvalineArv);
+
+        try (Scanner sc = new Scanner(new File("tabel1.txt"), StandardCharsets.UTF_8)) {
+            return Files.readAllLines(Paths.get("tabel1.txt")).get(suvalineArv);
+        }
     }
 
     public static String eraldaSõna(String rida) throws Exception {
