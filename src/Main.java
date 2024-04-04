@@ -5,9 +5,8 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
+
         Mängija mängija = new Mängija();
-
-
         Sõna arvatavSõna = new Sõna();
 
         Scanner scanner = new Scanner(System.in);
@@ -16,7 +15,7 @@ public class Main {
 
         while (mängija.getElud() > 0) {
             // väljastab lünkliku sõna
-            arvatavSõna.väljastaLünklik();
+            arvatavSõna.väljastaLünklik(); // nt esimesel korral A___
 
             // kasutaja poolt juba pakutud tähed
             arvatavSõna.prindiKasutatudTähed(); // neid tähti ei saa kasutaja uuesti sisestada

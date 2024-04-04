@@ -4,8 +4,8 @@ import java.util.Set;
 public class Sõna {
 
     private String suvalineSõna;
-    private char[] arvatudTähed; // Sisaldab sõna kujul R_T__ st 1. täht ja arvatud täht
-    private Set<Character> pakutudTähed;
+    private char[] arvatudTähed; // Sisaldab sõna kujul R_T__ st 1. täht ja mängija poolt ära arvatud tähed
+    private Set<Character> pakutudTähed; // juba pakutud tähed, mida ei tohiks enam uuesti pakkuda
 
     public Sõna() throws Exception {
         // sõna isendi loomisel loetakse failist uus sõna
@@ -29,7 +29,7 @@ public class Sõna {
 
     public void avaTäht(char täht) {
 
-        // Lünkade asendamine pakutud tähtedega
+        // Lünkade "_" asendamine pakutud tähtedega
         for (int i = 0; i < suvalineSõna.length(); i++) {
             if (suvalineSõna.charAt(i) == täht) {
                 arvatudTähed[i] = täht;

@@ -22,13 +22,13 @@ public class Mängija {
     }
 
 
-    // vb võiks mõelda, et mingi sõna annab rohkem punkte ja mingi vähem
+
     public String lisaPunkte(int punktid) {
         this.punktid += punktid;
         return "Lisasin " + punktid + " punkti.";
     }
 
-
+    // kui pakutakse vale täht, siis võetakse mängijalt 1 elu ära
     public void eemaldaElu() {
         if (elud > 0)
             elud -= 1;
@@ -38,15 +38,17 @@ public class Mängija {
         return elud;
     }
 
+    // kui mingi sõna on ära arvatud, siis elud taastatakse ja hakkab uue sõna arvamine
     public void taastaElud() {
-        elud = 6; // iga sõna alguses taastatakse mängija elud
+        elud = 6;
     }
 
     public int getPunktid() {
         return punktid;
     }
 
-    public void printMehike() throws Exception {
+    // väljastab mehikese kuju
+    public void printMehike() {
         for (String s : mehikeseOsad.subList(elud * 8, elud * 8 + 8)) {
             System.out.print(s + "\n");
         }
