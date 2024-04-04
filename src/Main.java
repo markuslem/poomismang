@@ -25,7 +25,7 @@ public class Main {
             while (true) { // ootab, et kasutaja sisestaks sobiva sisendi - 1 täht
                 System.out.print("Pakkuge täht: ");
                 String pakutud = scanner.nextLine();
-                if (pakutud.length() == 0) continue;
+                if (pakutud.isEmpty()) continue;
 
                 täht = Character.toUpperCase(pakutud.charAt(0));
                 if (pakutud.length() == 1 && arvatavSõna.tähtSaadaval(täht)) {

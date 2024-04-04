@@ -16,9 +16,9 @@ public class Mängija {
     public Mängija() throws Exception {
         // isendi loomine
         // lisab kõik read failist "mehike.txt" listi mehikeseOsad
-        try (Scanner sc = new Scanner(new File("tabel1.txt"), StandardCharsets.UTF_8)) {
-            mehikeseOsad = Files.readAllLines(Paths.get("mehike.txt"));
-        }
+
+        mehikeseOsad = Files.readAllLines(Paths.get("mehike.txt"));
+
     }
 
 
