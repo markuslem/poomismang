@@ -37,11 +37,11 @@ Elude otsa saamisel mäng lõpetatakse.
 
 Jaotasime tegevuse:
 
-1) Ideede seast õige valimine - Markus ja Marttis - 30 min
+1) Ideede seast õige valimine - Markus ja Marttis - 1 h
 2) Faililugeja klassi loomine koos failide otsimisega - Markus - 30 min
-2) Mängija klassi loomine koos "mehike.txt" faili kirjutamisega - Markus - 1 h 15 min
+2) Mängija klassi loomine koos "mehike.txt" faili kirjutamisega - Markus - 1 h 30 min
 3) Sõna klassi loomine - Marttis - <ajakulu>
-4) Main klassi loomine - Markus ja Marttis - 2 h 30 min
+4) Main klassi loomine - Markus ja Marttis - 3 h
 
 Projekti tegemisel suuri muresid ei tekkinud. Saime mängu loomisega konsooliprogrammina väga ilusti hakkama.
 
